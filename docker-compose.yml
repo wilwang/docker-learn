@@ -1,0 +1,27 @@
+version: "3"
+services:
+  cart-service:
+    container_name: cart-service
+    build: "./cart-service"
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./cart-service:/usr/src/app/
+    command: ["npm", "run", "dev"]
+  product-service:
+    container_name: product-service
+    build: "./product-service"
+    ports:
+      - "4000:3001"
+    volumes:
+      - ./product-service:/usr/src/app/
+    command: ["npm", "run", "dev"]
+  user-service:
+    container_name: user-service
+    build: "./user-service"
+    ports:
+      - "5000:3002"
+    volumes:
+      - ./user-service:/usr/src/app/
+    command: ["npm", "run", "dev"]
+  
